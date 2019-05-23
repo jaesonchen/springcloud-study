@@ -1,5 +1,7 @@
 package com.asiainfo.springcloud.hystrix;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
@@ -17,16 +19,21 @@ import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 @Service
 public class HelloService {
 
+    final Logger logger = LoggerFactory.getLogger(getClass());
+    
+    public static final String SERVICE_NAME = "service-hello";
+    
     @Autowired
     RestTemplate restTemplate;
 
-    @HystrixCommand(fallbackMethod = "hiError")
-    public String hiService(String name) {
-        return restTemplate.getForObject("http://EUREKA-HELLO/hello/" + name, String.class);
+    @HystrixCommand(fallbackMethod = "helloFallback")
+    public String hello(String name) {
+        return restTemplate.getForObject("http://" + SERVICE_NAME + "/hello/{name}", String.class, name);
     }
     
-    // callback
-    public String hiError(String name) {
+    // fallback
+    public String helloFallback(String name, Throwable ex) {
+        logger.error("timeout on invoke service-hello!", ex);
         return "hi, " + name + ", sorry error!";
     }
 }

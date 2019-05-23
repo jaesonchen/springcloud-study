@@ -13,9 +13,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
  * @version V1.0
  * @Copyright: Copyright(c) 2019 jaesonchen.com Inc. All rights reserved. 
  */
-//@FeignClient(value = "EUREKA-HELLO")
-@FeignClient(value = "EUREKA-HELLO", fallback = HelloServiceHiHystric.class)
+@FeignClient(value = "service-hello", fallback = HelloServiceFallback.class)
 public interface HelloService {
+    
     @RequestMapping(value = "/hello/{name}", method = RequestMethod.GET)
-    String sayHiFromClient(@PathVariable(value = "name") String name);
+    String sayHelloFromClient(@PathVariable(value = "name") String name);
 }

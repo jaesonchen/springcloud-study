@@ -15,10 +15,12 @@ import org.springframework.web.client.RestTemplate;
 @Service
 public class HelloService {
 
+    public static final String SERVICE_NAME = "service-hello";
+    
     @Autowired
     RestTemplate restTemplate;
 
-    public String hiService(String name) {
-        return restTemplate.getForObject("http://EUREKA-HELLO/hello/" + name, String.class);
+    public String hello(String name) {
+        return restTemplate.getForObject("http://" + SERVICE_NAME + "/hello/{name}", String.class, name);
     }
 }

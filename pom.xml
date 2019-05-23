@@ -18,11 +18,17 @@
     </parent>
     
     <modules>
+        <module>springcloud-consul-provider</module>
+        <module>springcloud-consul-consumer</module>
         <module>springcloud-eureka-server</module>
-        <module>springcloud-eureka-client</module>
-        <module>springcloud-ribbon</module>
+        <module>springcloud-eureka-provider</module>
+        <module>springcloud-config-server</module>
+        <module>springcloud-config-client</module>
         <module>springcloud-feign</module>
         <module>springcloud-hystrix</module>
+        <module>springcloud-ribbon</module>
+        <module>springcloud-sleuth</module>
+        <module>springcloud-turbine</module>
         <module>springcloud-zuul</module>
     </modules>
     
@@ -44,44 +50,4 @@
             </dependency>
         </dependencies>
     </dependencyManagement>
-    
-    <dependencies>
-
-        <!-- logging adapter & logback -->
-        <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-api</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>jcl-over-slf4j</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>log4j-over-slf4j</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>jul-to-slf4j</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>ch.qos.logback</groupId>
-            <artifactId>logback-classic</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>ch.qos.logback</groupId>
-            <artifactId>logback-core</artifactId>
-        </dependency>
-    </dependencies>
-    
-    <build>
-        <finalName>springcloud-study</finalName>
-        <plugins>
-            <!-- Package as an executable jar -->
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-            </plugin>
-        </plugins>
-    </build>
 </project>

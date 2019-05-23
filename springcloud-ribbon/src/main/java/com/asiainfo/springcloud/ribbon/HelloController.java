@@ -1,6 +1,10 @@
 package com.asiainfo.springcloud.ribbon;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cloud.client.discovery.DiscoveryClient;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -15,13 +19,24 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 public class HelloController {
+    
+    final Logger logger = LoggerFactory.getLogger(getClass());
 
     @Autowired
     HelloService service;
     
-    @RequestMapping("/hi/{name}")
-    public String hi(@PathVariable(value = "name") String name) {
-        System.out.println("Ribbon HelloController.hi is invoked!");
-        return service.hiService(name);
+    @RequestMapping("/hello/{name}")
+    public String hello(@PathVariable(value = "name") String name) {
+        logger.info("hello invoked. param = {}", name);
+        return service.hello(name);
+    }
+    
+    @Autowired
+    DiscoveryClient discoveryClient;
+
+    @GetMapping("/dc")
+    public String dc() {
+        logger.info("DiscoveryClient invoked. services: {}", discoveryClient.getServices());
+        return "Services: " + discoveryClient.getServices();
     }
 }

@@ -1,5 +1,7 @@
 package com.asiainfo.springcloud.hystrix;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,12 +18,14 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class HelloController {
 
+    final Logger logger = LoggerFactory.getLogger(getClass());
+    
     @Autowired
     HelloService service;
     
-    @RequestMapping("/hi/{name}")
+    @RequestMapping("/hello/{name}")
     public String hi(@PathVariable(value = "name") String name) {
-        System.out.println("Hystric HelloController.hi is invoked!");
-        return service.hiService(name);
+        logger.info("hello invoked. param = {}", name);
+        return service.hello(name);
     }
 }

@@ -3,7 +3,7 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>com.asiainfo.springcloud.eureka</groupId>
+  <groupId>com.asiainfo.springcloud.eureka.server</groupId>
   <artifactId>springcloud-eureka-server</artifactId>
   <name>springcloud-eureka-server</name>
   <url>http://maven.apache.org</url>
@@ -24,4 +24,14 @@
             <artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>
         </dependency>
     </dependencies>
+    
+    <build>
+        <finalName>springcloud-eureka-server</finalName>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
 </project>
