@@ -1,8 +1,11 @@
 package com.asiainfo.springcloud.config.client;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 /**   
  * @Description: TODO
@@ -14,8 +17,17 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
  */
 @EnableDiscoveryClient
 @SpringBootApplication
+@RestController
 public class ConfigClientApplication {
 
+    @Value("${mcd.welcome}")
+    private String welcome;
+
+    @RequestMapping("/hello")
+    public String hello() {
+        return welcome;
+    }
+    
     public static void main(String[] args) {
         SpringApplication.run(ConfigClientApplication.class, args);
     }
