@@ -1,9 +1,8 @@
-package com.asiainfo.springcloud.eureka.provider.server1;
+package com.asiainfo.springcloud.eureka.provider;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
-import org.springframework.context.annotation.ComponentScan;
 
 /**   
  * @Description: TODO
@@ -15,12 +14,11 @@ import org.springframework.context.annotation.ComponentScan;
  */
 @SpringBootApplication
 @EnableDiscoveryClient
-@ComponentScan("com.asiainfo.springcloud.eureka.provider.service")
-public class EurekaProviderApplication1 {
+public class EurekaProviderApplication {
     
+    // java EurekaProviderApplication --server.port=8080
+    // java -Dserver.port=8080 EurekaProviderApplication
     public static void main(String[] args) {
-        SpringApplication app = new SpringApplication(new Class<?>[] { EurekaProviderApplication1.class });
-        app.setAdditionalProfiles(new String[] { "provider1" });
-        app.run(args);
+        SpringApplication.run(EurekaProviderApplication.class, args);
     }
 }

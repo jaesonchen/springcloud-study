@@ -3,9 +3,9 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>com.asiainfo.springcloud.config</groupId>
-  <artifactId>springcloud-config-client</artifactId>
-  <name>springcloud-config-client</name>
+  <groupId>com.asiainfo.springcloud.stream</groupId>
+  <artifactId>springcloud-stream</artifactId>
+  <name>springcloud-stream</name>
   <url>http://maven.apache.org</url>
 
     <parent>
@@ -23,27 +23,11 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
-        </dependency>
-        <dependency>
-	        <groupId>org.springframework.cloud</groupId>
-	        <artifactId>spring-cloud-starter-config</artifactId>
-	    </dependency>
-	    <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-actuator</artifactId>
-        </dependency>
-        <!-- bus -->
-        <!-- <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-bus-amqp</artifactId>
-        </dependency> -->
+
     </dependencies>
-    
+
     <build>
-        <finalName>springcloud-config-client</finalName>
+        <finalName>springcloud-sleuth</finalName>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>

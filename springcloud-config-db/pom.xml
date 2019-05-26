@@ -3,9 +3,9 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>com.asiainfo.springcloud.config</groupId>
-  <artifactId>springcloud-config-server</artifactId>
-  <name>springcloud-config-server</name>
+  <groupId>com.asiainfo.springcloud.config.server</groupId>
+  <artifactId>springcloud-config-db</artifactId>
+  <name>springcloud-config-db</name>
   <url>http://maven.apache.org</url>
 
     <parent>
@@ -25,33 +25,20 @@
         </dependency>
         <dependency>
             <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+            <artifactId>spring-cloud-config-server</artifactId>
         </dependency>
         <dependency>
-	        <groupId>org.springframework.cloud</groupId>
-	        <artifactId>spring-cloud-config-server</artifactId>
-	    </dependency>
-	    <dependency>
-	        <groupId>org.springframework.boot</groupId>
-	        <artifactId>spring-boot-starter-actuator</artifactId>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
         </dependency>
-        
-        <!-- bus rabbitMQ-->
-        <!-- 
-	    <dependency>
-	        <groupId>org.springframework.cloud</groupId>
-	        <artifactId>spring-cloud-starter-bus-amqp</artifactId>
-        </dependency> -->
-        
-        <!-- bus kafka-->
-        <!-- <dependency>
-		    <groupId>org.springframework.cloud</groupId>
-		    <artifactId>spring-cloud-starter-bus-kafka</artifactId>
-		</dependency> -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-jdbc</artifactId>
+        </dependency>
     </dependencies>
     
     <build>
-        <finalName>springcloud-config-server</finalName>
+        <finalName>springcloud-config-db</finalName>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>

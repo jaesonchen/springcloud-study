@@ -10,4 +10,18 @@ Spring Cloud Config项目是一个解决分布式系统的配置管理方案。�
 - /{application}-{profile}.properties
 - /{label}/{application}-{profile}.properties
     
+# 高可用Config
+![config](src/main/resources/images/config.png)  
     
+
+
+# refresh
+## config client refresh
+curl -X POST http://localhost:9080/actuator/refresh 手动刷新客户端单个节点config。
+    
+![config refresh](src/main/resources/images/config-refresh.png)  
+    
+## config bus refresh
+curl -X POST http://localhost:8001/actuator/bus-refresh 在config server端触发消息代理(rabbitMQ / kafka)自动刷新所有节点config。
+    
+![config bus refresh](src/main/resources/images/config-bus-refresh.png)  

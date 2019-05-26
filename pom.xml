@@ -23,6 +23,7 @@
         <module>springcloud-eureka-server</module>
         <module>springcloud-eureka-provider</module>
         <module>springcloud-config-server</module>
+        <module>springcloud-config-db</module>
         <module>springcloud-config-client</module>
         <module>springcloud-feign</module>
         <module>springcloud-hystrix</module>
@@ -30,6 +31,8 @@
         <module>springcloud-sleuth</module>
         <module>springcloud-turbine</module>
         <module>springcloud-zuul</module>
+        <module>springcloud-gateway</module>
+        <module>springcloud-stream</module>
     </modules>
     
     <properties>
