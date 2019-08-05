@@ -5,7 +5,7 @@ import java.util.Random;
 import brave.sampler.Sampler;
 
 /**   
- * @Description: TODO
+ * @Description: zipkin采样率
  * 
  * @author chenzq  
  * @date 2019年5月23日 下午6:17:55
